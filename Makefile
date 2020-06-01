@@ -1,6 +1,6 @@
 include env_make
 
-NS = theanimaldock
+NS = passy
 VERSION ?= latest
 
 REPO = ndocker-postfix-relay

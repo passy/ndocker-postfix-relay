@@ -1,11 +1,11 @@
-FROM alpine:3.6
+FROM alpine:3.12
 
-MAINTAINER Danny van der Meulen <danny@cb750k6.nl>
+MAINTAINER Pascal Hartig <i@passy.me>
 
 ENV \
-  ALPINE_MIRROR="nl.alpinelinux.org" \
-  ALPINE_VERSION="v3.6" \
-  CONSUL_TEMPLATE_VERSION=0.19.4 \
+  ALPINE_MIRROR="uk.alpinelinux.org" \
+  ALPINE_VERSION="v3.12" \
+  CONSUL_TEMPLATE_VERSION=0.19.5 \
   APK_ADD_TEMP="curl" \
   APK_ADD_PERM="postfix busybox"
 
