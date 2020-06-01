@@ -262,7 +262,7 @@ job "postfix-relay" {
       # are specific to each driver, so please see specific driver
       # documentation for more information.
       config {
-        image = "passy/ndocker-postfix-relay:0.0.6"
+        image = "passy/ndocker-postfix-relay:0.0.7"
         port_map = {
           smtp = 25
         }
@@ -324,7 +324,9 @@ job "postfix-relay" {
       #
       resources {
         network {
-          port  "smtp" {}
+          port  "smtp" {
+            static = 25
+          }
         }
       }
       # The "service" stanza instructs Nomad to register this task as a service
