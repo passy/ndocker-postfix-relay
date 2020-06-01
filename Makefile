@@ -7,7 +7,7 @@ REPO = ndocker-postfix-relay
 NAME = postfix-relay
 INSTANCE = default
 
-.PHONY: build
+.PHONY: build run
 
 build:
 	docker build \
@@ -31,11 +31,13 @@ shell:
 run:
 	docker run \
 		--rm \
+		-it \
 		--name $(NAME)-$(INSTANCE) \
 		$(PORTS) \
 		$(VOLUMES) \
 		$(ENV) \
-		$(NS)/$(REPO):$(VERSION)
+		$(NS)/$(REPO):$(VERSION) \
+		sh
 
 stop:
 	docker stop \

@@ -2,12 +2,7 @@ PORTS = \
   --publish 25:25 \
 
 ENV = \
-  -e POSTFIX_CLIENT_SASL_ENABLED="true" \
-  -e SASL_GATEWAY="[lala.anna.lan]" \
-  -e SASL_USERNAME="user" \
-  -e SASL_PASSWD="password" \
-  -e POSTFIX_MYHOSTNAME="xxx.anna.lan" \
-  -e POSTFIX_RELAYHOST="192.168.1.191" \
-  -e POSTFIX_MYNETWORKS="192.168.1.0/24 172.17.0.0/16" \
-  -e POSTFIX_SMTPD_RELAY_RESTRICTIONS="permit_mynetworks,reject_unauth_destination" \
-  -e POSTFIX_ALLOWED_RECIPIENT_DOMAINS="example.com nu.nl hashicorp.com"
+  -e POSTFIX_MYHOSTNAME="example.com" \
+  -e POSTFIX_MXHOSTNAME="mx.example.com" \
+  -e POSTFIX_MYDESTINATION="localhost" \
+  -e POSTFIX_VIRTUAL_ALIAS_DOMAINS="example.com example.net"

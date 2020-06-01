@@ -1,6 +1,6 @@
 FROM alpine:3.12
 
-MAINTAINER Pascal Hartig <i@passy.me>
+LABEL AUTHOR="Pascal Hartig <i@passy.me>"
 
 ENV \
   ALPINE_MIRROR="uk.alpinelinux.org" \
@@ -23,8 +23,8 @@ RUN \
   unzip /tmp/consul-template.zip -d /usr/bin && \
   apk --purge del ${APK_ADD_TEMP} && \
   rm -rf \
-    /tmp/* \
-    /var/cache/apk/*
+  /tmp/* \
+  /var/cache/apk/*
 
 COPY rootfs/ /
 

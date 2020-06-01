@@ -1,16 +1,13 @@
 # ndocker-postfix-relay
-Simple postfix relay for use with nomad
+
+> Simple postfix relay for use with nomad.
+
+## Env Variables for Configuration
 
 Variable | Description | Notes
 ---|---|---
-POSTFIX_MYHOSTNAME | posfix myhostname |
-POSTFIX_MYDOMAIN | your domain name |
-POSTFIX_MYNETWORKS | what networks are allowed to send mail |
-POSTFIX_RELAYHOST | where to relay mail |
-POSTFIX_SMTPD_RELAY_RESTRICTIONS | your relay restrictions |
-POSTFIX_ALLOWED_RECIPIENT_DOMAINS | a space separated list of allowed reciepient domains | e.g. "example.com ebay.com hashicorp.com"
-POSTFIX_CLIENT_SASL_ENABLED | set to `true` or `false` |
-SASL_GATEWAY | your sasl enabled relay host |
-SASL_USERNAME | sasl username |
-SASL_PASSWD | sasl password |
+POSTFIX_MYHOSTNAME | postfix myhostname |
+POSTFIX_MXHOSTNAME | domain name that letsencrypt certs were issued for, usually prefixed by `mx.` |
+POSTFIX_MYDESTINATION | comma-separated list of destinations to be delivered locally |
+POSTFIX_VIRTUAL_ALIAS_DOMAINS | space-separated list of acceptable domains to relay emails for |
 NOMAD_PORT_smtp | mapped port provided by nomad | **Nomad will assign this for you when correctly configured**. It will use the default smtp port if not provided by Nomad.
