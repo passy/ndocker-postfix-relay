@@ -257,12 +257,18 @@ job "postfix-relay" {
       # run the task.
       driver = "docker"
 
+      volume_mount {
+        volume = "letsencrypt"
+        destination = "/etc/letsencrypt"
+        read_only = true
+      }
+
       # The "config" stanza specifies the driver configuration, which is passed
       # directly to the driver to start the task. The details of configurations
       # are specific to each driver, so please see specific driver
       # documentation for more information.
       config {
-        image = "passy/ndocker-postfix-relay:0.0.7"
+        image = "passy/ndocker-postfix-relay:0.0.9"
         port_map = {
           smtp = 25
         }

@@ -121,11 +121,11 @@ myorigin = $myhostname
 
 # TLS Config
 
-smtpd_tls_cert_file=/etc/letsencrypt/live/{{ env "POSTFIX_MXHOSTNAME" }}/fullchain.pem
-smtpd_tls_key_file=/etc/letsencrypt/live/{{ env "POSTFIX_MXHOSTNAME" }}/privkey.pem
-smtpd_tls_loglevel=1
-smtpd_use_tls=yes
-smtpd_sasl_auth_enable = yes
+smtpd_tls_cert_file = /etc/letsencrypt/live/{{ env "POSTFIX_MXHOSTNAME" }}/fullchain.pem
+smtpd_tls_key_file = /etc/letsencrypt/live/{{ env "POSTFIX_MXHOSTNAME" }}/privkey.pem
+smtpd_tls_loglevel = 1
+smtpd_use_tls = yes
+smtpd_sasl_auth_enable = no
 smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
 smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 smtp_tls_security_level = may
@@ -327,7 +327,7 @@ mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
 #
 #relay_domains = $mydestination
 
-smtpd_relay_restrictions = permit_mynetworks,permit_sasl_authenticated,reject_unauth_destination
+smtpd_relay_restrictions = permit_mynetworks,reject_unauth_destination
 smtpd_recipient_restrictions = reject_unauth_destination
 virtual_alias_domains = {{ env "POSTFIX_VIRTUAL_ALIAS_DOMAINS" }}
 virtual_alias_maps = hash:/etc/postfix/overlay/virtual
@@ -421,7 +421,7 @@ relayhost =
 # "postfix reload" to eliminate the delay.
 #
 #alias_maps = dbm:/etc/aliases
-alias_maps = hash:/etc/aliases
+alias_maps = hash:/etc/postfix/aliases
 #alias_maps = hash:/etc/aliases, nis:mail.aliases
 #alias_maps = netinfo:/aliases
 

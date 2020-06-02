@@ -13,7 +13,7 @@ busybox syslogd -n -O /dev/stdout &
 bbchild=$!
 
 newaliases
-postmap /etc/postfix/virtual
+postmap /etc/postfix/overlay/virtual
 
 consul-template -config /etc/ndocker/postfix.hcl &
 child=$!
